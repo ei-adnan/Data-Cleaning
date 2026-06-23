@@ -11,7 +11,7 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 |---|---------|--------|---------------|
 | 1 | [Netflix Titles](#1-netflix-titles) | Kaggle | Dropping redundant columns, renaming, duplicates, null values |
 | 2 | [E-commerce Fashion Dataset](#2-e-commerce-fashion-dataset) | Kaggle | Column cleanup, duplicate index fix, text formatting, missing value imputation by group |
-| 3 | [Sales Data](#3-sales-data) | GitHub (Onurbltc) | Invalid value detection, type conversion, group-based imputation, datetime cleaning, EDA visualisations |
+| 3 | [Cafe Sales Data](#3-cafe-sales-data) | GitHub (Onurbltc) | Invalid value detection, type conversion, group-based imputation, datetime cleaning, EDA visualisations |
 ---
 
 ## Project Details
