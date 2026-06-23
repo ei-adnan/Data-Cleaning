@@ -48,7 +48,7 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 
 **Lessons learned:** Missing values don't always show up as `NaN` — sometimes they're disguised as strings, blanks, or inconsistent placeholders, and need to be explicitly converted before they can be handled. Grouped imputation (median by category) gives a far more accurate fill than a single global median, especially when categories vary widely in pricing or discounting. Cleaning numeric-looking columns that are stored as text (like `"20%"` or `"Rs 999"`) requires extracting the actual numeric value before any aggregation or imputation can happen.
 
-[View Notebook](ecommerce-fashion/mynotebook.ipynb)
+[View Notebook](e-commerce1/mynotebook.ipynb)
 
 ### 3. Cafe Sales Data
 **Source:** [Onurbltc/SalesData (GitHub)](https://github.com/Onurbltc/SalesData)
@@ -65,8 +65,8 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 
 **Lessons learned:** Missing values aren't always blank — they can be disguised as misleading strings like `"ERROR"` or `"UNKNOWN"`, and need to be explicitly identified before any imputation logic will work correctly. Not every missing value should be imputed the same way: numeric columns can often be reconstructed from other columns (like `Total Spent` from `Quantity × Price`), categorical columns are sometimes better served by an explicit `"Unknown"` label, and some columns are critical enough that dropping missing rows is safer than imputing them. The visualisations also reinforced that cleaning isn't the end goal — it's what makes the EDA and charts trustworthy in the first place.
 
-[View Notebook](path/to/sales_notebook.ipynb)
-[View Plots](path/to/plots.ipynb)
+[View Notebook](Cafe_sales/sales_notebook.ipynb)
+[View Plots](Cafe_sales/plots.ipynb)
 ---
 
 ## Tools
