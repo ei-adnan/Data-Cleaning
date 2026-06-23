@@ -11,6 +11,7 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 |---|---------|--------|---------------|
 | 1 | [Netflix Titles](#1-netflix-titles) | Kaggle | Dropping redundant columns, renaming, duplicates, null values |
 | 2 | [E-commerce Fashion Dataset](#2-e-commerce-fashion-dataset) | Kaggle | Column cleanup, duplicate index fix, text formatting, missing value imputation by group |
+| 3 | [Sales Data](#3-sales-data) | GitHub (Onurbltc) | Invalid value detection, type conversion, group-based imputation, datetime cleaning, EDA visualisations |
 ---
 
 ## Project Details
@@ -49,6 +50,23 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 
 [View Notebook](ecommerce-fashion/mynotebook.ipynb)
 
+### 3. Cafe Sales Data
+**Source:** [Onurbltc/SalesData (GitHub)](https://github.com/Onurbltc/SalesData)
+
+**What I did:**
+- Identified invalid placeholder values (`ERROR`, `UNKNOWN`, `nan`) across the `Quantity`, `Price Per Unit`, and `Total Spent` columns, and converted them to proper missing values before imputation
+- Converted `Price Per Unit` and `Total Spent` from object to numeric type
+- Imputed missing `Price Per Unit` values using the group median
+- Imputed missing `Total Spent` values by recalculating them from `Quantity × Price Per Unit`
+- Filled missing and invalid entries in `Payment Method` with `"Unknown"` to preserve the signal that data was missing, rather than dropping or guessing
+- Converted `Transaction Date` from text to datetime, after identifying invalid placeholder values in the column
+- Dropped rows with missing `Transaction Date` values (4.6% of the data) since the column is critical for time-based analysis and imputing it risked introducing bias
+- Explored the cleaned data through visualisations: top 10 items by revenue, payment method distribution, revenue by payment method, and a price vs quantity scatter plot
+
+**Lessons learned:** Missing values aren't always blank — they can be disguised as misleading strings like `"ERROR"` or `"UNKNOWN"`, and need to be explicitly identified before any imputation logic will work correctly. Not every missing value should be imputed the same way: numeric columns can often be reconstructed from other columns (like `Total Spent` from `Quantity × Price`), categorical columns are sometimes better served by an explicit `"Unknown"` label, and some columns are critical enough that dropping missing rows is safer than imputing them. The visualisations also reinforced that cleaning isn't the end goal — it's what makes the EDA and charts trustworthy in the first place.
+
+[View Notebook](path/to/sales_notebook.ipynb)
+[View Plots](path/to/plots.ipynb)
 ---
 
 ## Tools
