@@ -72,6 +72,8 @@ Each project documents the cleaning process, key decisions, and lessons learned.
 ## Tools
 - Python 3.9
 - pandas
+- matplotlib
+- Numpy
 - Jupyter Notebook
 
 ---
